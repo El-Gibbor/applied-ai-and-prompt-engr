@@ -1,0 +1,28 @@
+{
+  "csv_file": "employees.csv",
+  "fields": [
+    {
+      "name": "name",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "age",
+      "type": "integer",
+      "required": true,
+      "min": 18,
+      "max": 65
+    },
+    {
+      "name": "email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "name": "department",
+      "type": "enum",
+      "required": true,
+      "values": ["Engineering", "Sales", "HR", "Marketing"]
+    }
+  ]
+}
