@@ -352,19 +352,15 @@ This section is divided into problems that end users are likely to meet and prob
 
 ## Prompt History
 
-This log records how the documentation was produced. Each stage began with a deliberately thin prompt, whose output was then compared against the reference specification, corrected for accuracy, and rebuilt into a stronger prompt. A final chaining pass unified the tone and heading levels across all three sections.
+### Stage One. First-Pass Prompt
 
-### Stage One. First-Pass Prompts
-
-These initial prompts carried no project context, so they were expected to produce generic templates.
+This initial prompt carried no project context, so it was expected to produce a generic template covering all three sections at once.
 
 ```
-Prompt A: Write a getting started guide for a task management web app.
-Prompt B: Write an API reference for a task management app.
-Prompt C: Write a troubleshooting section for a web app.
+Write a getting started guide for a task management web app, including an an API reference for and a troubleshooting section for the web app.
 ```
 
-The output from Prompt B illustrates the problem. The model produced a plausible reference that included endpoints and fields TaskFlow does not have. It added a `PUT /api/tasks/{id}` route for full replacement, referred to a `tags` array on the task object, and described an email verification step during registration. None of these appear in the reference specification, and none were marked as assumptions.
+The output illustrates the problem. The model produced a plausible API reference that included endpoints and fields TaskFlow does not have. It added a `PUT /api/tasks/{id}` route for full replacement, referred to a `tags` array on the task object, and described an email verification step during registration. None of these appear in the reference specification, and none were marked as assumptions.
 
 ### Stage Two. Refined Prompts With Pasted Context
 
